@@ -1,0 +1,188 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import { productions } from "@/data/site";
+
+const partnerImages = [
+  {
+    src: "/productions/gransbevakarna-sverige-card.jpg",
+    alt: "Gransbevakarna Sverige production image",
+    label: "Factual"
+  },
+  {
+    src: "/productions/efterlyst-card.jpg",
+    alt: "Efterlyst production image",
+    label: "True crime"
+  },
+  {
+    src: "/productions/spotify-dokumentara-poddar-card.jpg",
+    alt: "Spotify documentary podcast production image",
+    label: "Audio"
+  }
+];
+
+const partnerRows = [
+  {
+    name: "Kanal 5 / Discovery+",
+    broadcaster: "Kanal 5 / Discovery+",
+    type: "Broadcast & streaming",
+    description:
+      "Returning factual entertainment and workplace reality made for broad audiences and long-running formats."
+  },
+  {
+    name: "TV3 / Viaplay",
+    broadcaster: "TV3 / Viaplay",
+    type: "Broadcast & streaming",
+    description:
+      "Prime-time reality and factual formats developed for commercial television and streaming."
+  },
+  {
+    name: "SVT / SVT Play",
+    broadcaster: "SVT / SVT Play",
+    type: "Public service",
+    description:
+      "Documentary, factual and youth-facing productions built around careful editorial handling."
+  },
+  {
+    name: "TV4 / TV4 Play",
+    broadcaster: "TV4 / TV4 Play",
+    type: "Broadcast & streaming",
+    description:
+      "Crime, factual and entertainment productions for national reach and high-recognition formats."
+  },
+  {
+    name: "Spotify",
+    broadcaster: "Spotify",
+    type: "Audio",
+    description:
+      "Documentary podcast series and audio storytelling produced for large-scale digital listening."
+  },
+  {
+    name: "Podcast platforms",
+    broadcaster: "Podcast platforms",
+    type: "Audio distribution",
+    description:
+      "Original podcast concepts and recurring formats distributed across open audio platforms."
+  },
+  {
+    name: "YouTube / social platforms",
+    broadcaster: "YouTube / social platforms",
+    type: "Digital",
+    description:
+      "Social-first formats and digital extensions made for fast-moving audience behaviour."
+  }
+];
+
+const partnerSummaries = partnerRows.map((partner) => {
+  const partnerProductions = productions.filter(
+    (production) => production.broadcaster === partner.broadcaster
+  );
+
+  return {
+    ...partner,
+    productionCount: partnerProductions.length,
+    examples: partnerProductions.slice(0, 3).map((production) => production.title)
+  };
+});
+
+const mappedProductions = partnerSummaries.reduce(
+  (total, partner) => total + partner.productionCount,
+  0
+);
+
+const kpis = [
+  {
+    label: "Partner groups",
+    target: partnerSummaries.length,
+    sublabel: "Broadcasters, streamers, audio platforms and digital channels represented in the archive."
+  },
+  {
+    label: "Mapped productions",
+    target: mappedProductions,
+    sublabel: "Productions currently connected to listed partners and distribution platforms."
+  },
+  {
+    label: "Collaboration areas",
+    target: 4,
+    sublabel: "Broadcast, streaming, audio and social-first production work."
+  }
+];
+---
+
+<SiteLayout
+  title="Partners and collaborations"
+  description="Partners and collaborations across Alaska Film & TV's factual television, documentary, reality, true crime and audio work."
+  canonicalPath="/partners"
+  prefetchImages={["/mountains/skyline.png"]}
+>
+  <section class="about-hero partners-hero" aria-labelledby="partners-title">
+    <img src="/mountains/skyline.png" alt="Mountain skyline" />
+    <div class="about-hero__content">
+      <h1 id="partners-title">Partners and collaborations shaped around ambitious factual storytelling.</h1>
+    </div>
+  </section>
+
+  <section class="partners-intro">
+    <div class="about-section-heading">
+      <h2>Trusted by broadcasters, streamers and audio platforms.</h2>
+    </div>
+    <p class="partners-lede">
+      Alaska works across commissioned television, documentary, reality, true crime, podcasts and social-first formats.
+      The collaborations below reflect the platforms represented in the current production archive.
+    </p>
+  </section>
+
+  <section class="about-stats partners-directory" aria-labelledby="partners-directory-title">
+    <header class="about-stats-header">
+      <h2 id="partners-directory-title">Selected <em>partners</em></h2>
+    </header>
+
+    <div class="about-stats-split">
+      <section class="about-awards-panel" aria-label="Collaboration snapshots">
+        <div class="about-image-grid partners-image-grid">
+          {
+            partnerImages.map((image, index) => (
+              <figure class:list={["about-image-cell", { "is-tall": index === 0 }]}>
+                <img src={image.src} alt={image.alt} loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+                <figcaption>{image.label}</figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="about-kpi-panel" aria-label="Partner overview">
+        <div class="about-kpi-grid partners-kpi-grid">
+          {
+            kpis.map((kpi) => (
+              <article class="about-kpi-cell">
+                <p class="about-kpi-label">{kpi.label}</p>
+                <div class="about-kpi-number-wrap">
+                  <span class="js-countup" data-countup-target={String(kpi.target)}>0</span>
+                </div>
+                <p class="about-kpi-sublabel">{kpi.sublabel}</p>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="partners-list" aria-label="Partner list">
+          {
+            partnerSummaries.map((partner) => (
+              <article class="partner-row">
+                <span class="partner-row__type">{partner.type}</span>
+                <div class="partner-row__body">
+                  <h3>{partner.name}</h3>
+                  <p>{partner.description}</p>
+                </div>
+                <div class="partner-row__meta">
+                  <span>{partner.productionCount} productions</span>
+                  <span>{partner.examples.join(" / ")}</span>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+    </div>
+  </section>
+</SiteLayout>
