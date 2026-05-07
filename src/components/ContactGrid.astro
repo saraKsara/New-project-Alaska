@@ -1,19 +1,36 @@
 ---
 import { contacts } from "@/data/site";
+
+const visibleContacts = contacts.filter(
+  (contact) =>
+    contact.name?.trim() &&
+    contact.role?.trim() &&
+    (contact.bio?.trim() || contact.email?.trim() || contact.phone?.trim())
+);
+
+function isPlaceholderPhone(phone: string) {
+  return !phone.trim() || phone.includes("XX");
+}
 ---
 
-<div class="contact-people-grid">
-  {
-    contacts.map((contact) => (
-      <article class="contact-person">
-        <p class="meta">{contact.role}</p>
-        <h2>{contact.name}</h2>
-        <p>{contact.bio}</p>
-        <div class="contact-person__links">
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
-          <a href={`tel:${contact.phone.replaceAll(" ", "")}`}>{contact.phone}</a>
-        </div>
-      </article>
-    ))
-  }
-</div>
+{
+  visibleContacts.length > 0 && (
+    <div class="contact-people-grid">
+      {visibleContacts.map((contact) => (
+        <article class="contact-person">
+          <p class="meta">{contact.role}</p>
+          <h2>{contact.name}</h2>
+          {contact.bio?.trim() && <p>{contact.bio}</p>}
+          {(contact.email?.trim() || !isPlaceholderPhone(contact.phone)) && (
+            <div class="contact-person__links">
+              {contact.email?.trim() && <a href={`mailto:${contact.email}`}>{contact.email}</a>}
+              {!isPlaceholderPhone(contact.phone) && (
+                <a href={`tel:${contact.phone.replaceAll(" ", "")}`}>{contact.phone}</a>
+              )}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  )
+}

@@ -120,12 +120,19 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
         }
 
         function initCardCounters() {
-          document.querySelectorAll(".production-card").forEach((card) => {
-            const cardCounters = card.querySelectorAll(".js-countup[data-countup-target]");
-            if (!cardCounters.length) return;
+          const cards = [...document.querySelectorAll(".production-card")]
+            .map((card) => ({
+              card,
+              counters: [...card.querySelectorAll(".js-countup[data-countup-target]")]
+            }))
+            .filter(({ counters }) => counters.length > 0);
 
-            function show() {
-              cardCounters.forEach((counter) => {
+          if (!cards.length) return;
+
+          function showCard({ card, counters }) {
+            card.classList.add("is-mobile-active");
+
+            counters.forEach((counter) => {
                 const target = Number.parseInt(counter.dataset.countupTarget || "0", 10);
                 if (reduceMotion) {
                   setCounterValue(counter, target);
@@ -135,18 +142,58 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
                 resetCounter(counter);
                 animateCounter(counter);
               });
-            }
+          }
 
-            function hide() {
-              if (reduceMotion) return;
-              cardCounters.forEach(resetCounter);
-            }
+          function hideCard({ card, counters }) {
+            card.classList.remove("is-mobile-active");
+            if (reduceMotion) return;
+            counters.forEach(resetCounter);
+          }
 
+          cards.forEach((cardState) => {
+            const { card } = cardState;
             card.addEventListener("mouseenter", show);
             card.addEventListener("mouseleave", hide);
             card.addEventListener("focusin", show);
             card.addEventListener("focusout", hide);
+
+            function show() {
+              showCard(cardState);
+            }
+
+            function hide() {
+              hideCard(cardState);
+            }
           });
+
+          const mobileStats = window.matchMedia("(hover: none), (pointer: coarse), (max-width: 699px)").matches;
+          if (!mobileStats) return;
+
+          if (!("IntersectionObserver" in window)) {
+            cards.forEach(showCard);
+            return;
+          }
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                const cardState = cards.find(({ card }) => card === entry.target);
+                if (!cardState) return;
+
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+                  showCard(cardState);
+                } else {
+                  hideCard(cardState);
+                }
+              });
+            },
+            {
+              rootMargin: "-18% 0px -18% 0px",
+              threshold: [0, 0.35, 0.55, 0.75]
+            }
+          );
+
+          cards.forEach(({ card }) => observer.observe(card));
         }
 
         function initViewportCounters() {

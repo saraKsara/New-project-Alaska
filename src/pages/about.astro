@@ -124,6 +124,14 @@ const kpis = [
     sublabel: "Individual episodes delivered across returning factual and documentary series."
   }
 ];
+
+const visibleAwardImages = awardImages.filter((image) => image.src?.trim() && image.alt?.trim());
+const visibleAwards = awards.filter(
+  (award) => award.year?.trim() && award.award?.trim() && award.show?.trim() && award.status?.trim()
+);
+const visibleKpis = kpis.filter(
+  (kpi) => kpi.label?.trim() && Number.isFinite(kpi.target) && kpi.sublabel?.trim()
+);
 ---
 
 <SiteLayout
@@ -149,7 +157,7 @@ const kpis = [
       <section class="about-awards-panel" aria-label="Awards">
         <div class="about-image-grid" aria-label="Productions">
           {
-            awardImages.map((image, index) => (
+            visibleAwardImages.map((image, index) => (
               <figure class:list={["about-image-cell", { "is-tall": index === 0 }]}>
                 <img src={image.src} alt={image.alt} loading={index === 0 ? "eager" : "lazy"} decoding="async" />
               </figure>
@@ -159,7 +167,7 @@ const kpis = [
 
         <div class="about-awards-list">
           {
-            awards.map((award) => (
+            visibleAwards.map((award) => (
               <article class="about-award-row">
                 <span class="about-award-year">{award.year}</span>
                 <div class="about-award-body">
@@ -179,7 +187,7 @@ const kpis = [
       <section class="about-kpi-panel" aria-label="Production figures">
         <div class="about-kpi-grid">
           {
-            kpis.map((kpi) => (
+            visibleKpis.map((kpi) => (
               <article class:list={["about-kpi-cell", { "is-featured": kpi.featured }]}>
                 <p class="about-kpi-label">{kpi.label}</p>
                 <div class="about-kpi-number-wrap">

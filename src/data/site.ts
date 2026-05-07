@@ -117,8 +117,8 @@ export const productions: Production[] = [
     year: "2023",
     category: "Work place reality",
     broadcaster: "Viaplay",
-    image: "/productions/gruvan.jpg",
-    cardImage: "/productions/gruvan-card.jpg",
+    image: "/productions/fangar-pa-polisens-kamera.jpg",
+    cardImage: "/productions/fangar-pa-polisens-kamera-card.jpg",
     description:
       "On poliscameras across Sweden, secrets are unvailed and civilians rescued in this gripping series. Fångat på polisens kamera takes viewers into the heart of real police interventions, where surveillance footage captures dramatic and intense situations. From high-speed chases to tense standoffs, the program offers an unfiltered look at the everyday life of the police as they deal with crime, dangerous situations, and unexpected events. With a mix of raw footage and expert commentary, Fångat på polisens kamera provides a powerful insight into the challenges and heroism of law enforcement in Sweden.",
     stats: [

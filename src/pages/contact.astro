@@ -16,18 +16,26 @@ import { alaskaSite } from "@/data/site";
 
   <section class="contact-page" aria-label="Contact details">
     <div class="contact-primary">
-      <div class="contact-primary__item">
-        <p class="contact-primary__label">Email</p>
-        <a class="contact-primary__link" href={`mailto:${alaskaSite.email}`}>{alaskaSite.email}</a>
-      </div>
-      <div class="contact-primary__item">
-        <p class="contact-primary__label">Job applications</p>
-        <a class="contact-primary__link" href={`mailto:${alaskaSite.jobApplicationsEmail}`}>
-          {alaskaSite.jobApplicationsEmail}
-        </a>
-      </div>
-      <p>Send CVs, portfolios and applications to this address.</p>
-      <p>{alaskaSite.address}</p>
+      {
+        alaskaSite.email?.trim() && (
+          <div class="contact-primary__item">
+            <p class="contact-primary__label">Email</p>
+            <a class="contact-primary__link" href={`mailto:${alaskaSite.email}`}>{alaskaSite.email}</a>
+          </div>
+        )
+      }
+      {
+        alaskaSite.jobApplicationsEmail?.trim() && (
+          <div class="contact-primary__item">
+            <p class="contact-primary__label">Job applications</p>
+            <a class="contact-primary__link" href={`mailto:${alaskaSite.jobApplicationsEmail}`}>
+              {alaskaSite.jobApplicationsEmail}
+            </a>
+          </div>
+        )
+      }
+      {alaskaSite.jobApplicationsEmail?.trim() && <p>Send CVs, portfolios and applications to this address.</p>}
+      {alaskaSite.address?.trim() && <p>{alaskaSite.address}</p>}
       <SocialLinks />
     </div>
 

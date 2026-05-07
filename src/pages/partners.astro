@@ -2,43 +2,32 @@
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import { productions } from "@/data/site";
 
-const partnerImages = [
-  {
-    src: "/productions/gransbevakarna-sverige-card.jpg",
-    alt: "Gransbevakarna Sverige production image",
-    label: "Factual"
-  },
-  {
-    src: "/productions/efterlyst-card.jpg",
-    alt: "Efterlyst production image",
-    label: "True crime"
-  },
-  {
-    src: "/productions/spotify-dokumentara-poddar-card.jpg",
-    alt: "Spotify documentary podcast production image",
-    label: "Audio"
-  }
-];
-
 const partnerRows = [
   {
     name: "LKAB / Gruvan",
     broadcaster: "Kanal 5 / Discovery+",
     type: "Broadcast & streaming",
-    image: "/productions/lkab.jpg",
+    image: "/productions/logolkab.png",
     imageBackground: "#ffffff",
     imageFilter: "none",
-    imageOpacity: "0.88",
-    imageSize: "72% auto",
+    imageOpacity: "0.92",
+    imageSize: "68% auto",
     imageTransform: "none",
     overlay: "rgba(5, 5, 5, 0.48)",
-    description:"Inside one of the world’s most advanced and safest mines a hidden world comes alive. Loved by audiences the 2nd season shines a light at Swedens pride once again"
+    description:
+      "Inside one of the world's most advanced and safest mines, a hidden world comes alive. Loved by audiences, the second season shines a light on Sweden's pride once again."
   },
   {
     name: "Boliden / Gruvan",
     broadcaster: "TV3 / Viaplay",
     type: "Broadcast & streaming",
-    image: "/productions/boliden.png",
+    image: "/productions/bolidenlogo.png",
+    imageBackground: "#ffffff",
+    imageFilter: "none",
+    imageOpacity: "0.9",
+    imageSize: "68% auto",
+    imageTransform: "none",
+    overlay: "rgba(5, 5, 5, 0.5)",
     description:
       "Prime-time reality and factual formats developed for commercial television and streaming."
   },
@@ -46,7 +35,13 @@ const partnerRows = [
     name: "Polisen / Stockholm / Norrlandspolisen",
     broadcaster: "TV3 / Viaplay",
     type: "Public service",
-    image: "/productions/sommaren-i-grums-card.jpg",
+    image: "/productions/polisenlogo.png",
+    imageBackground: "#ffffff",
+    imageFilter: "none",
+    imageOpacity: "0.9",
+    imageSize: "60% auto",
+    imageTransform: "none",
+    overlay: "rgba(5, 5, 5, 0.5)",
     description:
       "Documentary, factual and youth-facing productions built around careful editorial handling."
   },
@@ -70,11 +65,11 @@ const partnerRows = [
     name: "Trafikverket / Vägens Hjältar",
     broadcaster: "Kanal 5 / Discovery",
     type: "Broadcast & streaming",
-    image: "/productions/boliden.png",
+    image: "/productions/vagens-hjaltar-card.jpg",
     description:
-      "Prime-time work-life reality wit 18 seasons produced has gained a storg fan base and love for real people! "
+      "Prime-time work-life reality with 18 seasons produced has gained a strong fan base and love for real people."
   },
-{
+  {
     name: "Podcast platforms",
     broadcaster: "Podcast platforms",
     type: "Audio distribution",
@@ -86,7 +81,7 @@ const partnerRows = [
     name: "Sveriges åkeriföretag  / Truckers",
     broadcaster: "kanal 5 / Dicovery",
     type: "Broadcast & streaming",
-    image: "/productions/bra-surr-card.jpg",
+    image: "/productions/svenska-truckers-card.jpg",
     description:
       "By shining the light on the right people Sveriges åkeriföretag shows the world those who help make all our daily lives work in this exciting work-life series."
   },
@@ -94,13 +89,17 @@ const partnerRows = [
     name: "Region Stockholm / Sjukhuset",
     broadcaster: "kanal 5 / Dicovery",
     type: "Broadcast & streaming",
-    image: "/productions/bra-surr-card.jpg",
+    image: "/productions/stockholmspolisen-card.jpg",
     description:
-      "Region Stockholm invited us to help tell their story through Sjukhuset, resulting in amazing emplyer branding and and a captive audience!"
+      "Region Stockholm invited us to help tell their story through Sjukhuset, resulting in employer branding and a captive audience."
   }
 ];
 
-const partnerSummaries = partnerRows.map((partner) => {
+const completePartnerRows = partnerRows.filter(
+  (partner) => partner.name?.trim() && partner.type?.trim() && partner.description?.trim() && partner.image?.trim()
+);
+
+const partnerSummaries = completePartnerRows.map((partner) => {
   const partnerProductions = productions.filter(
     (production) => production.broadcaster === partner.broadcaster
   );
@@ -112,28 +111,6 @@ const partnerSummaries = partnerRows.map((partner) => {
   };
 });
 
-const mappedProductions = partnerSummaries.reduce(
-  (total, partner) => total + partner.productionCount,
-  0
-);
-
-const kpis = [
-  {
-    label: "Partner groups",
-    target: partnerSummaries.length,
-    sublabel: "Broadcasters, streamers, audio platforms and digital channels represented in the archive."
-  },
-  {
-    label: "Mapped productions",
-    target: mappedProductions,
-    sublabel: "Productions currently connected to listed partners and distribution platforms."
-  },
-  {
-    label: "Collaboration areas",
-    target: 4,
-    sublabel: "Broadcast, streaming, audio and social-first production work."
-  }
-];
 ---
 
 <SiteLayout
@@ -188,44 +165,17 @@ const kpis = [
               <h3>{partner.name}</h3>
               <p>{partner.description}</p>
             </div>
-            <div class="partner-row__meta">
-              <span>{partner.productionCount} productions</span>
-              <span>{partner.examples.join(" / ")}</span>
-            </div>
+            {
+              partner.productionCount > 0 && partner.examples.length > 0 && (
+                <div class="partner-row__meta">
+                  <span>{partner.productionCount} productions</span>
+                  <span>{partner.examples.join(" / ")}</span>
+                </div>
+              )
+            }
           </article>
         ))
       }
-    </div>
-
-    <div class="about-stats-split">
-      <section class="about-awards-panel" aria-label="Collaboration snapshots">
-        <div class="about-image-grid partners-image-grid">
-          {
-            partnerImages.map((image, index) => (
-              <figure class:list={["about-image-cell", { "is-tall": index === 0 }]}>
-                <img src={image.src} alt={image.alt} loading={index === 0 ? "eager" : "lazy"} decoding="async" />
-                <figcaption>{image.label}</figcaption>
-              </figure>
-            ))
-          }
-        </div>
-      </section>
-
-      <section class="about-kpi-panel" aria-label="Partner overview">
-        <div class="about-kpi-grid partners-kpi-grid">
-          {
-            kpis.map((kpi) => (
-              <article class="about-kpi-cell">
-                <p class="about-kpi-label">{kpi.label}</p>
-                <div class="about-kpi-number-wrap">
-                  <span class="js-countup" data-countup-target={String(kpi.target)}>0</span>
-                </div>
-                <p class="about-kpi-sublabel">{kpi.sublabel}</p>
-              </article>
-            ))
-          }
-        </div>
-      </section>
     </div>
   </section>
 </SiteLayout>

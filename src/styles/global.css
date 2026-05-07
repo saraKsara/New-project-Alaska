@@ -365,7 +365,8 @@ select {
 }
 
 .production-card:hover img,
-.production-card:focus-within img {
+.production-card:focus-within img,
+.production-card.is-mobile-active img {
   filter: grayscale(1) brightness(0.22);
   transform: scale(1.025);
 }
@@ -389,17 +390,22 @@ select {
 .production-card[data-slug="kvartsamtalet"]:hover .production-card__media img,
 .production-card[data-slug="kvartsamtalet"]:focus-within .production-card__media img,
 .production-card[data-slug="vara-tonaringar"]:hover .production-card__media img,
-.production-card[data-slug="vara-tonaringar"]:focus-within .production-card__media img {
+.production-card[data-slug="vara-tonaringar"]:focus-within .production-card__media img,
+.production-card[data-slug="mamma-jimmy-guo"].is-mobile-active .production-card__media img,
+.production-card[data-slug="kvartsamtalet"].is-mobile-active .production-card__media img,
+.production-card[data-slug="vara-tonaringar"].is-mobile-active .production-card__media img {
   transform: scale(1.17);
 }
 
 .production-grid--podcast .production-card:hover img,
-.production-grid--podcast .production-card:focus-within img {
+.production-grid--podcast .production-card:focus-within img,
+.production-grid--podcast .production-card.is-mobile-active img {
   transform: scale(1.32);
 }
 
 .production-card:hover .production-card__overlay,
-.production-card:focus-within .production-card__overlay {
+.production-card:focus-within .production-card__overlay,
+.production-card.is-mobile-active .production-card__overlay {
   opacity: 1;
 }
 
@@ -1259,7 +1265,6 @@ select {
 }
 
 .contact-person {
-  min-height: 17rem;
   background: var(--black);
   padding: 1.5rem;
 }
@@ -1273,7 +1278,6 @@ select {
 
 .contact-person p:not(.meta) {
   margin: 1rem 0 0;
-  min-height: 5rem;
   color: rgba(255, 255, 255, 0.78);
   font-family: var(--support-font);
   line-height: 1.45;
