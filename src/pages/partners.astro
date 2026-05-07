@@ -25,6 +25,7 @@ const partnerRows = [
     name: "Kanal 5 / Discovery+",
     broadcaster: "Kanal 5 / Discovery+",
     type: "Broadcast & streaming",
+    image: "/productions/lkab.jpg",
     description:
       "Returning factual entertainment and workplace reality made for broad audiences and long-running formats."
   },
@@ -32,6 +33,7 @@ const partnerRows = [
     name: "TV3 / Viaplay",
     broadcaster: "TV3 / Viaplay",
     type: "Broadcast & streaming",
+    image: "/productions/svenska-truckers-card.jpg",
     description:
       "Prime-time reality and factual formats developed for commercial television and streaming."
   },
@@ -39,6 +41,7 @@ const partnerRows = [
     name: "SVT / SVT Play",
     broadcaster: "SVT / SVT Play",
     type: "Public service",
+    image: "/productions/sommaren-i-grums-card.jpg",
     description:
       "Documentary, factual and youth-facing productions built around careful editorial handling."
   },
@@ -46,6 +49,7 @@ const partnerRows = [
     name: "TV4 / TV4 Play",
     broadcaster: "TV4 / TV4 Play",
     type: "Broadcast & streaming",
+    image: "/productions/johanna-moller-card.jpg",
     description:
       "Crime, factual and entertainment productions for national reach and high-recognition formats."
   },
@@ -53,6 +57,7 @@ const partnerRows = [
     name: "Spotify",
     broadcaster: "Spotify",
     type: "Audio",
+    image: "/productions/spotify-dokumentara-poddar-card.jpg",
     description:
       "Documentary podcast series and audio storytelling produced for large-scale digital listening."
   },
@@ -60,6 +65,7 @@ const partnerRows = [
     name: "Podcast platforms",
     broadcaster: "Podcast platforms",
     type: "Audio distribution",
+    image: "/productions/minnet-card.jpg",
     description:
       "Original podcast concepts and recurring formats distributed across open audio platforms."
   },
@@ -67,6 +73,7 @@ const partnerRows = [
     name: "YouTube / social platforms",
     broadcaster: "YouTube / social platforms",
     type: "Digital",
+    image: "/productions/bra-surr-card.jpg",
     description:
       "Social-first formats and digital extensions made for fast-moving audience behaviour."
   }
@@ -136,6 +143,24 @@ const kpis = [
       <h2 id="partners-directory-title">Selected <em>partners</em></h2>
     </header>
 
+    <div class="partners-list" aria-label="Partner list">
+      {
+        partnerSummaries.map((partner) => (
+          <article class="partner-row" style={`--partner-image: url("${partner.image}");`}>
+            <span class="partner-row__type">{partner.type}</span>
+            <div class="partner-row__body">
+              <h3>{partner.name}</h3>
+              <p>{partner.description}</p>
+            </div>
+            <div class="partner-row__meta">
+              <span>{partner.productionCount} productions</span>
+              <span>{partner.examples.join(" / ")}</span>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
     <div class="about-stats-split">
       <section class="about-awards-panel" aria-label="Collaboration snapshots">
         <div class="about-image-grid partners-image-grid">
@@ -160,24 +185,6 @@ const kpis = [
                   <span class="js-countup" data-countup-target={String(kpi.target)}>0</span>
                 </div>
                 <p class="about-kpi-sublabel">{kpi.sublabel}</p>
-              </article>
-            ))
-          }
-        </div>
-
-        <div class="partners-list" aria-label="Partner list">
-          {
-            partnerSummaries.map((partner) => (
-              <article class="partner-row">
-                <span class="partner-row__type">{partner.type}</span>
-                <div class="partner-row__body">
-                  <h3>{partner.name}</h3>
-                  <p>{partner.description}</p>
-                </div>
-                <div class="partner-row__meta">
-                  <span>{partner.productionCount} productions</span>
-                  <span>{partner.examples.join(" / ")}</span>
-                </div>
               </article>
             ))
           }
