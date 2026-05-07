@@ -22,24 +22,30 @@ const partnerImages = [
 
 const partnerRows = [
   {
-    name: "Kanal 5 / Discovery+",
+    name: "LKAB / Gruvan",
     broadcaster: "Kanal 5 / Discovery+",
     type: "Broadcast & streaming",
     image: "/productions/lkab.jpg",
+    imageBackground: "#ffffff",
+    imageFilter: "none",
+    imageOpacity: "0.88",
+    imageSize: "72% auto",
+    imageTransform: "none",
+    overlay: "rgba(5, 5, 5, 0.48)",
     description:
       "Returning factual entertainment and workplace reality made for broad audiences and long-running formats."
   },
   {
-    name: "TV3 / Viaplay",
+    name: "Boliden / Gruvan",
     broadcaster: "TV3 / Viaplay",
     type: "Broadcast & streaming",
-    image: "/productions/svenska-truckers-card.jpg",
+    image: "/productions/boliden.png",
     description:
       "Prime-time reality and factual formats developed for commercial television and streaming."
   },
   {
-    name: "SVT / SVT Play",
-    broadcaster: "SVT / SVT Play",
+    name: "Polisen / Stockholm / Norrlandspolisen",
+    broadcaster: "TV3 / Viaplay",
     type: "Public service",
     image: "/productions/sommaren-i-grums-card.jpg",
     description:
@@ -146,7 +152,22 @@ const kpis = [
     <div class="partners-list" aria-label="Partner list">
       {
         partnerSummaries.map((partner) => (
-          <article class="partner-row" style={`--partner-image: url("${partner.image}");`}>
+          <article
+            class="partner-row"
+            style={
+              [
+                `--partner-image: url("${partner.image}")`,
+                partner.imageBackground ? `--partner-image-background: ${partner.imageBackground}` : "",
+                partner.imageFilter ? `--partner-image-filter: ${partner.imageFilter}` : "",
+                partner.imageOpacity ? `--partner-image-opacity: ${partner.imageOpacity}` : "",
+                partner.imageSize ? `--partner-image-size: ${partner.imageSize}` : "",
+                partner.imageTransform ? `--partner-image-transform: ${partner.imageTransform}` : "",
+                partner.overlay ? `--partner-overlay: ${partner.overlay}` : ""
+              ]
+                .filter(Boolean)
+                .join("; ")
+            }
+          >
             <span class="partner-row__type">{partner.type}</span>
             <div class="partner-row__body">
               <h3>{partner.name}</h3>

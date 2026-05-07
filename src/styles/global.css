@@ -941,19 +941,21 @@ select {
   content: "";
   position: absolute;
   inset: 0;
+  background-color: var(--partner-image-background, transparent);
   background-image: var(--partner-image);
   background-position: center;
-  background-size: cover;
-  filter: grayscale(1);
-  opacity: 0.22;
-  transform: scale(1.04);
+  background-repeat: no-repeat;
+  background-size: var(--partner-image-size, cover);
+  filter: var(--partner-image-filter, grayscale(1));
+  opacity: var(--partner-image-opacity, 0.48);
+  transform: var(--partner-image-transform, scale(1.04));
 }
 
 .partner-row::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(5, 5, 5, 0.58);
+  background: var(--partner-overlay, rgba(5, 5, 5, 0.36));
 }
 
 .partner-row > * {
