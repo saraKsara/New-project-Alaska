@@ -519,24 +519,17 @@ export const contacts: ContactRole[] = [
  
   {
     role: "Head of Development",
-    name: "Donna Tartt",
-    email: "judypoovey@gmail.com",
+    name: "Sarah Koller",
+    email: "sarah.koller@alaskafilmtv.com",
     phone: "+46 XX XXX XX XX",
-    bio: "Format development, pitches, research and early commissioner dialogue."
+    bio: "Format development, pitches, research and early commissioner dialogue, communication for companies and public bodies."
   },
   {
-    role: "Production Manager",
-    name: "Tosha",
-    email: "cykablyatvov@gmail.com",
+    role: "Excecutive producer",
+    name: "Sofie Eklund",
+    email: "sofie.eklund@alaskafilmtv.com",
     phone: "+46 XX XXX XX XX",
     bio: "Planning, staffing, shoot logistics, workplace safety and delivery routines."
-  },
-  {
-    role: "Head of Commissioned Work",
-    name: "Sixten Ranelid",
-    email: "theman@gmail.com",
-    phone: "+46 XX XXX XX XX",
-    bio: "Film, podcast and editorial communication for companies and public bodies."
   }
 ];
 
