@@ -3,48 +3,7 @@ import SiteLayout from "@/layouts/SiteLayout.astro";
 import { productions } from "@/data/site";
 
 const teamMembers = [
-  {
-    name: "Catarina Lundbäck",
-    role: "Founder & CEO",
-    image: "/images/team/vivianne-krantz.jpg",
-    alt: "Portrait of Catarina Lundbäck"
-  },
-  {
-    name: "Jan Rus",
-    role: "Founder & CTO",
-    image: "/images/team/hunter-s-thompson.jpg",
-    alt: "Portrait of Jan Rus"
-  },
-  {
-    name: "Donna Tartt",
-    role: "Head of Development",
-    image: "/images/team/donna-tartt.webp",
-    alt: "Portrait of Donna Tartt"
-  },
-  {
-    name: "Tosha",
-    role: "Production Manager",
-    image: "/images/team/tosha.jpg",
-    alt: "Portrait of Tosha"
-  },
-  {
-    name: "Janne Jonsson",
-    role: "Head of Commissioned Work",
-    image: "/images/team/janne-jonsson.jpg",
-    alt: "Portrait of Janne Jonsson"
-  },
-  {
-    name: "Christer Petterson",
-    role: "Press Contact",
-    image: "/images/team/christer-pettersson.avif",
-    alt: "Portrait of Christer Petterson"
-  },
-  {
-    name: "Gerald Ford",
-    role: "President of the United States, 1974-1977",
-    image: "/images/team/gerald-ford.jpg",
-    alt: "Portrait of Gerald Ford"
-  },
+  
   {
     name: "Richard Nixon",
     role: "President of the United States, 1969-1974",
@@ -187,26 +146,7 @@ const kpis = [
     </div>
   </section>
 
-  <section id="team" class="about-team">
-    <div class="about-section-heading">
-      <h2>The people behind the production.</h2>
-    </div>
 
-    <div class="about-team-grid">
-      {
-        teamMembers.map((member) => (
-          <article>
-            <div class="about-team-image">
-              <img src={member.image} alt={member.alt} loading="lazy" decoding="async" />
-              <span aria-hidden="true">+</span>
-            </div>
-            <h3>{member.name}</h3>
-            <p>{member.role}</p>
-          </article>
-        ))
-      }
-    </div>
-  </section>
 
   <section id="stats-awards" class="about-stats">
     <header class="about-stats-header">

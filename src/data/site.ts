@@ -515,20 +515,8 @@ export const categories = Array.from(
 ).sort() as string[];
 
 export const contacts: ContactRole[] = [
-  {
-    role: "CEO",
-    name: "Vivianne Krantz",
-    email: "bossbitch@gmail.com",
-    phone: "+46 XX XXX XX XX",
-    bio: "Company leadership, strategic partnerships and senior client relationships."
-  },
-  {
-    role: "Executive Producer",
-    name: "Hunter S Thompson",
-    email: "raoulduke@gmail.com",
-    phone: "+46 XX XXX XX XX",
-    bio: "Broadcaster dialogue, production quality and delivery of major series."
-  },
+  
+ 
   {
     role: "Head of Development",
     name: "Donna Tartt",
@@ -545,17 +533,10 @@ export const contacts: ContactRole[] = [
   },
   {
     role: "Head of Commissioned Work",
-    name: "Janne Jönsson",
+    name: "Sixten Ranelid",
     email: "theman@gmail.com",
     phone: "+46 XX XXX XX XX",
     bio: "Film, podcast and editorial communication for companies and public bodies."
-  },
-  {
-    role: "Press Contact",
-    name: "Christer Petterson",
-    email: "didntdoit@gmail.com",
-    phone: "+46 XX XXX XX XX",
-    bio: "Press images, interviews, nominations, awards information and trade enquiries."
   }
 ];
 
