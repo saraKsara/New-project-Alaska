@@ -66,6 +66,13 @@ img {
   max-width: 100%;
 }
 
+.js-countup {
+  display: inline-block;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
 a {
   color: inherit;
   text-decoration-color: currentColor;
@@ -526,6 +533,19 @@ select {
 
 .js-rattle-text {
   min-height: 3.3em;
+}
+
+.js-rattle-text.is-fade-pending {
+  opacity: 0;
+  transform: translateY(0.35rem);
+}
+
+.js-rattle-text.is-fade-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 520ms ease,
+    transform 520ms ease;
 }
 
 .awards-strip__grid {

@@ -89,6 +89,13 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
           el.textContent = `${formatNumber(value)}${suffix}`;
         }
 
+        function reserveCounterSpace(el) {
+          const target = Number.parseInt(el.dataset.countupTarget || "0", 10);
+          const suffix = el.dataset.countupSuffix || "";
+          const finalText = `${formatNumber(target)}${suffix}`;
+          el.style.minWidth = `${finalText.length}ch`;
+        }
+
         function animateCounter(el) {
           const target = Number.parseInt(el.dataset.countupTarget || "0", 10);
           const duration = target > 500 ? 3200 : target > 100 ? 2600 : 2100;
@@ -202,6 +209,7 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
           );
 
           if (!standaloneCounters.length) return;
+          standaloneCounters.forEach(reserveCounterSpace);
 
           if (!("IntersectionObserver" in window) || reduceMotion) {
             standaloneCounters.forEach((counter) => {
@@ -232,41 +240,14 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
           const rattleTexts = document.querySelectorAll(".js-rattle-text[data-rattle-text]");
           if (!rattleTexts.length) return;
 
-          const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ0123456789";
-
           function setFinalText(el) {
             el.textContent = el.dataset.rattleText || "";
           }
 
-          function animateText(el) {
-            const finalText = el.dataset.rattleText || "";
-            const startTime = performance.now();
-            const duration = 1800;
-            const runId = `${startTime}-${finalText.length}`;
-            el.dataset.rattleRunId = runId;
-
-            function tick(now) {
-              if (el.dataset.rattleRunId !== runId) return;
-
-              const progress = Math.min((now - startTime) / duration, 1);
-              const resolved = Math.floor(progress * finalText.length);
-
-              el.textContent = finalText
-                .split("")
-                .map((character, index) => {
-                  if (character === " " || index < resolved) return character;
-                  return letters[Math.floor(Math.random() * letters.length)];
-                })
-                .join("");
-
-              if (progress < 1) {
-                requestAnimationFrame(tick);
-              } else {
-                setFinalText(el);
-              }
-            }
-
-            requestAnimationFrame(tick);
+          function revealText(el) {
+            setFinalText(el);
+            el.classList.remove("is-fade-pending");
+            el.classList.add("is-fade-visible");
           }
 
           if (!("IntersectionObserver" in window) || reduceMotion) {
@@ -274,12 +255,17 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
             return;
           }
 
+          rattleTexts.forEach((text) => {
+            setFinalText(text);
+            text.classList.add("is-fade-pending");
+          });
+
           const observer = new IntersectionObserver(
             (entries) => {
               entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
 
-                animateText(entry.target);
+                revealText(entry.target);
                 observer.unobserve(entry.target);
               });
             },
