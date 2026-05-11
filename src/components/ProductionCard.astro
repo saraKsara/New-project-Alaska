@@ -37,24 +37,27 @@ const styleVars = [
         decoding="sync"
       />
       <div class="production-card__overlay" aria-hidden="true">
-        <dl class="production-card__stats">
-          {
-            stats.map((stat) => (
-              <div>
-                <dt>{stat.label}</dt>
-                <dd>
-                  <span
-                    class="js-countup"
-                    data-countup-target={String(stat.value)}
-                    data-countup-suffix={stat.suffix ?? ""}
-                  >
-                    0
-                  </span>
-                </dd>
-              </div>
-            ))
-          }
-        </dl>
+        <div class="production-card__overlay-content">
+          <dl class="production-card__stats">
+            {
+              stats.map((stat) => (
+                <div>
+                  <dt>{stat.label}</dt>
+                  <dd>
+                    <span
+                      class="js-countup"
+                      data-countup-target={String(stat.value)}
+                      data-countup-suffix={stat.suffix ?? ""}
+                    >
+                      0
+                    </span>
+                  </dd>
+                </div>
+              ))
+            }
+          </dl>
+          <span class="production-card__cta">More info</span>
+        </div>
       </div>
     </div>
   </a>

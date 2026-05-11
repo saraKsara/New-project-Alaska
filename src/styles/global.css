@@ -340,6 +340,13 @@ select {
   transition: opacity 220ms ease;
 }
 
+.production-card__overlay-content {
+  display: grid;
+  width: 100%;
+  justify-items: center;
+  gap: 1.15rem;
+}
+
 .production-card__stats {
   display: grid;
   width: min(88%, 24rem);
@@ -369,6 +376,28 @@ select {
   font-size: 1.65rem;
   font-weight: 500;
   line-height: 1;
+}
+
+.production-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.18rem;
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.production-card__cta::after {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
 }
 
 .production-card:hover img,
