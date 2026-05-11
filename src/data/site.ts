@@ -69,10 +69,10 @@ export const productions: Production[] = [
     image: "/productions/svenska-truckers.jpg",
     cardImage: "/productions/svenska-truckers-card.jpg",
     description:
-      "Svenska Truckers is a realistic series that follows the daily adventures of truck drivers on the road, where they navigate tough routes and manage deliveries under strict deadlines. The program provides a unique insight into the world of truck drivers, from the long, lonely hours on the open road to their skill in handling large vehicles in complex situations. Svenska Truckers has won the prestigious Kristallen Award for Sweden's Best Reality Series and has received three additional nominations, solidifying its status as a standout in Swedish reality television.",
+      "Svenska Truckers is a realistic series that follows the daily adventures of truck drivers on the road, where they navigate tough routes and manage deliveries under strict deadlines. The program provides a unique insight into the world of truck drivers, from the long, lonely hours on the open road to their skill in handling large vehicles in complex situations. Svenska Truckers has won the prestigious Kristallen Award for Sweden’s Best Reality Series and has received three additional nominations, solidifying its status as a standout in Swedish reality television. Seasons: 11.",
     stats: [
-      { label: "Seasons", value: 5 },
-      { label: "Episodes", value: 42 },
+      { label: "Seasons", value: 11 },
+      { label: "Episodes", value: 130 },
       { label: "Nominations", value: 4 }
     ],
     gallery: ["/productions/vagens-hjaltar.jpg", "/productions/gruvan.jpg"]
@@ -86,7 +86,7 @@ export const productions: Production[] = [
     image: "/productions/efterlyst.avif",
     cardImage: "/productions/efterlyst-card.jpg",
     description:
-      "Efterlyst takes viewers straight into the heart of Sweden's most shocking criminal cases, where the police and the public work together to solve cold cases and capture wanted criminals. Airing for over 30 years, Efterlyst is a flagship production and a true prestige project, having earned eight nominations for the Kristallen Award—the Swedish equivalent of an Emmy. Alaska has been specially chosen among production companies in Sweden as the trusted partner to produce this program year after year. The program combines raw facts with authentic reconstructions to portray the ongoing quest for justice.",
+      "Efterlyst takes viewers straight into the heart of Sweden’s most shocking criminal cases, where the police and the public work together to solve cold cases and capture wanted criminals. Airing for over 30 years, Efterlyst is a flagship production and a true prestige project, having earned eight nominations for the Kristallen Award—the Swedish equivalent of an Emmy. Alaska has been specially chosen among production companies in Sweden as the trusted partner to produce this program year after year. The program combines raw facts with authentic reconstructions to portray the ongoing quest for justice. Seasons: 13.",
     stats: [
       { label: "Years", value: 30, suffix: "+" },
       { label: "Seasons", value: 13 },
