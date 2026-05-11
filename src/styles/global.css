@@ -365,9 +365,16 @@ select {
 .detail-stats dt {
   color: var(--muted);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0;
+}
+
+.production-card__stats dt {
+  font-size: 0.76rem;
+}
+
+.detail-stats dt {
+  font-size: 0.7rem;
 }
 
 .production-card__stats dd {
@@ -382,6 +389,7 @@ select {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  margin-top: 0.45rem;
   border-bottom: 1px solid currentColor;
   padding-bottom: 0.18rem;
   color: var(--white);
