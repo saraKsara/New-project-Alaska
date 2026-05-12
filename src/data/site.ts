@@ -174,8 +174,8 @@ export const productions: Production[] = [
     description:
       "Havets Hjältar takes viewers on a thrilling journey with 60 marine police officers patrolling the stunning yet unpredictable archipelagos of Stockholm and Gothenburg. The series also follows dedicated volunteers from the Swedish Sea Rescue Society, who are always ready to lend a helping hand when calm waters turn treacherous. Whether responding to emergencies, accidents, or even crime scenes, these brave men and women risk it all to keep Sweden's waters safe. Each episode brings viewers closer to the action, showcasing the courage and resilience required to face the unexpected at sea. Dive into the captivating world of Havets Hjältar and witness true acts of heroism on Sweden's vast waters.",
     stats: [
-      { label: "Views", value: 3600000, suffix: "+" },
       { label: "Seasons", value: 3 },
+      { label: "Views", value: 3600000, suffix: "+" },
       { label: "Episodes", value: 24 }
     ],
     gallery: ["/productions/vagens-hjaltar.jpg", "/productions/gransbevakarna-sverige.jpg"]
@@ -191,8 +191,8 @@ export const productions: Production[] = [
     description:
       "This summer, radio personality Hanna Hellquist brings a fresh twist to TV with her new show Summer in Grums. Teaming up with celebrity guests, Hanna tackles the ultimate challenge: transforming the garden on her family's beloved farm. Join Hanna as she enlists the help of singer Oscar Zia, crime novelist Malin Persson Giolito, her På spåret partner Ina Lundström, along with Jonatan Unge and Little Jinder. With unexpected humor, hard work, and lively company, Summer in Grums promises to be a heartwarming and entertaining adventure in rural Sweden.",
     stats: [
-      { label: "Views", value: 840000, suffix: "+" },
       { label: "Episodes", value: 6 },
+      { label: "Views", value: 840000, suffix: "+" },
       { label: "Seasons", value: 1 }
     ],
     gallery: ["/productions/mamma-jimmy-guo.jpg", "/productions/vara-tonaringar.jpg"]
@@ -208,8 +208,8 @@ export const productions: Production[] = [
     description:
       "Våra tonåringar is a Swedish series offering invaluable insights for parents navigating the challenges of raising teenagers, featuring expert advice from professionals like psychologist Johannes Hatem and appearances from celebrities such as rapper Cleo and TV host Hans Wiklund. The show explores topics like behavior change, supporting academic success, and avoiding common pitfalls in communication with teens.",
     stats: [
-      { label: "Views", value: 960000, suffix: "+" },
       { label: "Episodes", value: 8 },
+      { label: "Views", value: 960000, suffix: "+" },
       { label: "Seasons", value: 1 }
     ],
     gallery: ["/productions/bra-surr.jpg", "/productions/kvartsamtalet.jpg"]
@@ -225,8 +225,8 @@ export const productions: Production[] = [
     description:
       "In 2016, one of Sweden's most high-profile murders took place, the so-called \"Summer cottage murder\". The victim's daughter, Johanna Möller, becomes known as the \"Arboga woman\" and is sentenced to life imprisonment for being the mastermind behind the act that she made her boyfriend carry out. Johanna Möller is convicted without technical evidence and the verdict is based on the testimony of co-suspect Mohammad Rajabi.",
     stats: [
-      { label: "Streams", value: 1350000, suffix: "+" },
       { label: "Parts", value: 3 },
+      { label: "Streams", value: 1350000, suffix: "+" },
       { label: "Year", value: 2022 }
     ],
     gallery: ["/productions/efterlyst.jpg", "/productions/ronnasfallet.jpg"]
@@ -242,8 +242,8 @@ export const productions: Production[] = [
     description:
       "The exclusive Discovery documentary Rönnäsfallet – The Quest for Truth reveals new evidence in the notorious Rönnäs assault case, potentially clearing Lars Appelvik, who many believe was wrongfully convicted. Following attorney Marko Tuhkanen, detective Bo Åström, and professor Minna Gräns, the series exposes critical flaws in the investigation and challenges the foundation of Appelvik's sentence. With crime scene reconstructions and fresh insights, Rönnäsfallet offers a gripping look into the search for justice in one of Sweden's most controversial cases.",
     stats: [
-      { label: "Views", value: 1100000, suffix: "+" },
       { label: "Episodes", value: 5 },
+      { label: "Views", value: 1100000, suffix: "+" },
       { label: "Year", value: 2021 }
     ],
     gallery: ["/productions/johanna-moller.jpg", "/productions/seriemordare.jpg"]
