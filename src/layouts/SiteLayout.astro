@@ -275,10 +275,51 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
           rattleTexts.forEach((text) => observer.observe(text));
         }
 
+        function initDragCarousels() {
+          const carousels = document.querySelectorAll(".js-drag-carousel");
+          if (!carousels.length) return;
+
+          carousels.forEach((carousel) => {
+            let isDragging = false;
+            let startX = 0;
+            let startScrollLeft = 0;
+
+            carousel.addEventListener("pointerdown", (event) => {
+              if (event.pointerType === "mouse" && event.button !== 0) return;
+
+              isDragging = true;
+              startX = event.clientX;
+              startScrollLeft = carousel.scrollLeft;
+              carousel.classList.add("is-dragging");
+              carousel.setPointerCapture?.(event.pointerId);
+            });
+
+            carousel.addEventListener("pointermove", (event) => {
+              if (!isDragging) return;
+
+              const deltaX = event.clientX - startX;
+              carousel.scrollLeft = startScrollLeft - deltaX;
+            });
+
+            function stopDragging(event) {
+              if (!isDragging) return;
+
+              isDragging = false;
+              carousel.classList.remove("is-dragging");
+              carousel.releasePointerCapture?.(event.pointerId);
+            }
+
+            carousel.addEventListener("pointerup", stopDragging);
+            carousel.addEventListener("pointercancel", stopDragging);
+            carousel.addEventListener("dragstart", (event) => event.preventDefault());
+          });
+        }
+
         function init() {
           initCardCounters();
           initViewportCounters();
           initRattleText();
+          initDragCarousels();
         }
 
         document.readyState === "loading"

@@ -4,8 +4,7 @@ import {
   getRelatedProductions,
   productions,
   productionHref,
-  type Production,
-  type ProductionStat
+  type Production
 } from "@/data/site";
 
 export function getStaticPaths() {
@@ -22,38 +21,12 @@ type Props = {
 const { production } = Astro.props;
 const meta = [production.category, production.year, production.broadcaster].filter(Boolean).join(" · ");
 const relatedProductions = getRelatedProductions(production, 2);
-
-function getDetailStats(production: Production): ProductionStat[] {
-  const baseStats = [...(production.stats ?? [])];
-  const existingLabels = new Set(baseStats.map((stat) => stat.label.toLowerCase()));
-  const productionIndex = Math.max(productions.findIndex((candidate) => candidate.slug === production.slug), 0);
-  const year = Number.parseInt(production.year ?? "2024", 10);
-  const broadcasterCount = production.broadcaster
-    ? production.broadcaster.split("/").map((item) => item.trim()).filter(Boolean).length
-    : 1;
-  const categorySeed = production.category === "Podcast" ? 2 : 4;
-  const fallbackStats: ProductionStat[] = [
-    { label: "Year", value: Number.isFinite(year) ? year : 2024 },
-    { label: "Broadcasters", value: broadcasterCount },
-    { label: "Locations", value: (productionIndex % 6) + categorySeed },
-    { label: "Production days", value: (productionIndex % 12) + 8 },
-    { label: "Crew", value: (productionIndex % 7) + 5 },
-    { label: "Formats", value: 1 },
-    { label: "Stories", value: (productionIndex % 9) + 4 },
-    { label: "Markets", value: (productionIndex % 5) + 2 }
-  ];
-
-  for (const stat of fallbackStats) {
-    if (baseStats.length >= 6) break;
-    if (existingLabels.has(stat.label.toLowerCase())) continue;
-    baseStats.push(stat);
-    existingLabels.add(stat.label.toLowerCase());
-  }
-
-  return baseStats;
-}
-
-const detailStats = getDetailStats(production);
+const galleryImages = [...new Set([production.image, ...(production.gallery ?? [])])];
+const galleryCaptions = [
+  ""Vi hade inte förväntat oss att bli kändisar i USA!"",
+  "Ansökningarna till truckförarutbildningen ökade med 314%",
+  "Serien har presterat långt över förväntan"
+];
 const youtubeEmbedUrl = production.youtubeId
   ? `https://www.youtube-nocookie.com/embed/${production.youtubeId}`
   : undefined;
@@ -75,22 +48,25 @@ const youtubeEmbedUrl = production.youtubeId
 
     <section class="detail-content">
       <p class="detail-copy">{production.description}</p>
-      <dl class="detail-stats">
-        {detailStats.map((stat) => (
-          <div>
-            <dt>{stat.label}</dt>
-            <dd>
-              <span
-                class="js-countup"
-                data-countup-target={String(stat.value)}
-                data-countup-suffix={stat.suffix ?? ""}
-              >
-                0
-              </span>
-            </dd>
-          </div>
-        ))}
-      </dl>
+      <section class="detail-gallery" aria-label={`${production.title} image gallery`}>
+        <div class="detail-gallery__track js-drag-carousel" tabindex="0">
+          {
+            galleryImages.map((image, index) => (
+              <figure class="detail-gallery__slide">
+                <img
+                  src={image}
+                  alt={`${production.title} gallery image ${index + 1}`}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+                {galleryCaptions[index] && (
+                  <figcaption class="detail-gallery__caption">{galleryCaptions[index]}</figcaption>
+                )}
+              </figure>
+            ))
+          }
+        </div>
+      </section>
     </section>
 
     {
