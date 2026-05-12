@@ -1180,6 +1180,19 @@ select {
   padding: clamp(1rem, 2vw, 1.4rem);
 }
 
+.detail-gallery__caption span::before,
+.detail-gallery__caption span::after {
+  display: inline;
+}
+
+.detail-gallery__caption span::before {
+  content: "\"";
+}
+
+.detail-gallery__caption span::after {
+  content: "\"";
+}
+
 .detail-stats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

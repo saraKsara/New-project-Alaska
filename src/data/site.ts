@@ -32,6 +32,7 @@ export type Production = {
   youtubeId?: string;
   stats?: ProductionStat[];
   gallery?: string[];
+  galleryCaptions?: string[];
 };
 
 export type ContactRole = {
@@ -58,7 +59,12 @@ export const productions: Production[] = [
       { label: "Episodes", value: 48 },
       { label: "Award", value: 1 }
     ],
-    gallery: ["/productions/tunnelbanan.jpg", "/productions/havets-hjaltar.jpg"]
+    gallery: ["/productions/tunnelbanan.jpg", "/productions/havets-hjaltar.jpg"],
+    galleryCaptions: [
+      "Vi hade inte förväntat oss att bli kändisar i USA!",
+      "Ansökningarna ökade kraftigt efter serien",
+      "Serien har presterat långt över förväntan"
+    ]
   },
   {
     slug: "svenska-truckers",
