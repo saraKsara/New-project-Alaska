@@ -23,9 +23,14 @@ const meta = [production.category, production.year, production.broadcaster].filt
 const relatedProductions = getRelatedProductions(production, 2);
 const galleryImages = [...new Set([production.image, ...(production.gallery ?? [])])];
 const galleryCaptions = production.galleryCaptions ?? [];
+const galleryCaptionNames = production.galleryCaptionNames ?? [];
 const youtubeEmbedUrl = production.youtubeId
   ? `https://www.youtube-nocookie.com/embed/${production.youtubeId}`
   : undefined;
+
+function cleanCaptionText(caption?: string) {
+  return caption?.trim().replace(/^["“”]+|["“”]+$/g, "") ?? "";
+}
 ---
 
 <SiteLayout
@@ -47,21 +52,27 @@ const youtubeEmbedUrl = production.youtubeId
       <section class="detail-gallery" aria-label={`${production.title} image gallery`}>
         <div class="detail-gallery__track js-drag-carousel" tabindex="0">
           {
-            galleryImages.map((image, index) => (
-              <figure class="detail-gallery__slide">
-                <img
-                  src={image}
-                  alt={`${production.title} gallery image ${index + 1}`}
-                  loading={index === 0 ? "eager" : "lazy"}
-                  decoding="async"
-                />
-                {galleryCaptions[index] && (
-                  <figcaption class="detail-gallery__caption">
-                    <span>{galleryCaptions[index]}</span>
-                  </figcaption>
-                )}
-              </figure>
-            ))
+            galleryImages.map((image, index) => {
+              const caption = cleanCaptionText(galleryCaptions[index]);
+              const captionName = galleryCaptionNames[index];
+
+              return (
+                <figure class="detail-gallery__slide">
+                  <img
+                    src={image}
+                    alt={`${production.title} gallery image ${index + 1}`}
+                    loading={index === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                  />
+                  {caption && (
+                    <figcaption class="detail-gallery__caption">
+                      <span class="detail-gallery__quote">{caption}</span>
+                      {captionName && <span class="detail-gallery__speaker">{captionName}</span>}
+                    </figcaption>
+                  )}
+                </figure>
+              );
+            })
           }
         </div>
       </section>
