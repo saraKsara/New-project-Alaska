@@ -59,11 +59,11 @@ export const productions: Production[] = [
       { label: "Episodes", value: 48 },
       { label: "Award", value: 1 }
     ],
-    gallery: ["/productions/tunnelbanan.jpg", "/productions/havets-hjaltar.jpg"],
+    gallery: ["/productions/Pressbild_Mimmi.jpg", "/productions/havets-hjaltar.jpg"],
     galleryCaptions: [
-      "Vi hade inte förväntat oss att bli kändisar i USA!",
-      "Ansökningarna ökade kraftigt efter serien",
-      "Serien har presterat långt över förväntan"
+      "\"Vi hade inte förväntat oss att bli kändisar i USA!\"",
+      "\"Ansökningarna ökade kraftigt efter seriens framgång\"",
+      "\"Serien har presterat långt över förväntan\""
     ]
   },
   {

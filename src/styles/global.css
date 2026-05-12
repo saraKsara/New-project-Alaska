@@ -1165,19 +1165,29 @@ select {
 
 .detail-gallery__caption {
   position: absolute;
-  right: clamp(1rem, 2vw, 1.5rem);
-  bottom: clamp(1rem, 2vw, 1.5rem);
-  left: clamp(1rem, 2vw, 1.5rem);
+  top: 46%;
+  left: 50%;
   display: grid;
+  width: min(calc(100% - 2rem), 31rem);
   align-items: center;
-  min-height: clamp(4.5rem, 8vw, 6.25rem);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(5, 5, 5, 0.7);
+  justify-items: center;
+  min-height: clamp(5rem, 8vw, 6.75rem);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)),
+    rgba(5, 5, 5, 0.06);
+  box-shadow: 0 1.4rem 3.5rem rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(12px) saturate(1.1);
   color: var(--white);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.15rem, 2.2vw, 1.8rem);
+  font-style: italic;
   line-height: 1.08;
   padding: clamp(1rem, 2vw, 1.4rem);
+  text-align: center;
+  text-shadow: 0 0.12rem 0.8rem rgba(0, 0, 0, 0.4);
+  transform: translate(-50%, -50%);
 }
 
 .detail-gallery__caption span::before,
