@@ -88,8 +88,8 @@ export const productions: Production[] = [
     description:
       "Efterlyst takes viewers straight into the heart of Sweden’s most shocking criminal cases, where the police and the public work together to solve cold cases and capture wanted criminals. Airing for over 30 years, Efterlyst is a flagship production and a true prestige project, having earned eight nominations for the Kristallen Award—the Swedish equivalent of an Emmy. Alaska has been specially chosen among production companies in Sweden as the trusted partner to produce this program year after year. The program combines raw facts with authentic reconstructions to portray the ongoing quest for justice. Seasons: 13.",
     stats: [
-      { label: "Views", value: 112000000, suffix: "+" },
       { label: "Seasons", value: 13 },
+      { label: "Views", value: 112000000, suffix: "+" },
       { label: "Nominations", value: 8 }
     ],
     gallery: ["/productions/johanna-moller.jpg", "/productions/ronnasfallet.jpg"]
@@ -140,8 +140,8 @@ export const productions: Production[] = [
       "Vägens Hjältar takes viewers into the fast-paced daily lives of tow truck operators as they recover cars and other vehicles that have crashed or veered off the road. This highly successful series has, for many years, captivated audiences of all ages with its compelling stories of rescue and recovery. Each episode showcases the skills, bravery, and quick thinking required to handle high-stakes situations on the road, drawing viewers into the challenges and triumphs of those who keep our roads safe.",
     youtubeId: "wzTxZ5ZcES0",
     stats: [
-      { label: "Views", value: 61200000, suffix: "+" },
       { label: "Seasons", value: 16, suffix: "+" },
+      { label: "Views", value: 61200000, suffix: "+" },
       { label: "Episodes", value: 170, suffix: "+" }
     ],
     gallery: ["/productions/svenska-truckers.jpg", "/productions/tunnelbanan.jpg"]
