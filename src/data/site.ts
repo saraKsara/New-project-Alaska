@@ -157,8 +157,8 @@ export const productions: Production[] = [
     description:
       "Tunnelbanan gives viewers a rare glimpse into the daily efforts to keep Stockholm's transit system safe. The series follows SL's security team—including guards, volunteers, and subway police—as they monitor stations through surveillance and respond to incidents in real time. With a mix of high-stakes interventions and coordinated responses, Subway captures the intense, behind-the-scenes work needed to maintain order, offering suspenseful insights into the vital operations of Stockholm's public transit.",
     stats: [
-      { label: "Views", value: 112000000, suffix: "+" },
       { label: "Episodes", value: 40, suffix: "+" },
+      { label: "Views", value: 112000000, suffix: "+" },
       { label: "Seasons", value: 5 }
     ],
     gallery: ["/productions/stockholmspolisen.jpg", "/productions/havets-hjaltar.jpg"]
