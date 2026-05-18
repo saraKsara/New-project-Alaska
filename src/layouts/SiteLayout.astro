@@ -280,9 +280,63 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
           if (!carousels.length) return;
 
           carousels.forEach((carousel) => {
+            if (carousel.dataset.carouselReady === "true") return;
+            carousel.dataset.carouselReady = "true";
+
+            const gallery = carousel.closest(".detail-gallery");
+            const dots = [...(gallery?.querySelectorAll(".js-carousel-dot") ?? [])];
+            const originalSlides = [...carousel.querySelectorAll(".detail-gallery__slide")];
             let isDragging = false;
             let startX = 0;
             let startScrollLeft = 0;
+
+            function slideScrollLeft(slide) {
+              const paddingLeft = Number.parseFloat(getComputedStyle(carousel).paddingLeft) || 0;
+              return slide.offsetLeft - paddingLeft;
+            }
+
+            function scrollToSlide(slide, behavior = "smooth") {
+              carousel.scrollTo({
+                left: slideScrollLeft(slide),
+                behavior
+              });
+            }
+
+            function getClosestSlide() {
+              const viewportCenter = carousel.scrollLeft + carousel.clientWidth / 2;
+
+              return originalSlides.reduce((closest, slide) => {
+                const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+                const distance = Math.abs(slideCenter - viewportCenter);
+
+                if (!closest || distance < closest.distance) {
+                  return { slide, distance };
+                }
+
+                return closest;
+              }, null)?.slide;
+            }
+
+            function updateDots(index) {
+              dots.forEach((dot) => {
+                const isActive = Number.parseInt(dot.dataset.carouselDot || "0", 10) === index;
+                dot.classList.toggle("is-active", isActive);
+
+                if (isActive) {
+                  dot.setAttribute("aria-current", "true");
+                } else {
+                  dot.removeAttribute("aria-current");
+                }
+              });
+            }
+
+            function activeIndexFromClosestSlide() {
+              const closestSlide = getClosestSlide();
+              const index = Number.parseInt(closestSlide?.dataset.carouselIndex || "0", 10);
+              return Number.isFinite(index) ? index : 0;
+            }
+
+            updateDots(0);
 
             carousel.addEventListener("pointerdown", (event) => {
               if (event.pointerType === "mouse" && event.button !== 0) return;
@@ -312,6 +366,25 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
             carousel.addEventListener("pointerup", stopDragging);
             carousel.addEventListener("pointercancel", stopDragging);
             carousel.addEventListener("dragstart", (event) => event.preventDefault());
+
+            carousel.addEventListener(
+              "scroll",
+              () => {
+                updateDots(activeIndexFromClosestSlide());
+              },
+              { passive: true }
+            );
+
+            dots.forEach((dot) => {
+              dot.addEventListener("click", () => {
+                const index = Number.parseInt(dot.dataset.carouselDot || "0", 10);
+                const slide = originalSlides[index];
+                if (!slide) return;
+
+                scrollToSlide(slide);
+                updateDots(index);
+              });
+            });
           });
         }
 

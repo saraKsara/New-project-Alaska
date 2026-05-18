@@ -24,6 +24,18 @@ if (variant === "mosaic") {
     }
   }
 
+  const moveProductionAfter = (slug: string, targetSlug: string) => {
+    const currentIndex = displayProductions.findIndex((production) => production.slug === slug);
+    const targetIndex = displayProductions.findIndex((production) => production.slug === targetSlug);
+
+    if (currentIndex !== -1 && targetIndex !== -1 && currentIndex !== targetIndex) {
+      const [production] = displayProductions.splice(currentIndex, 1);
+      const nextTargetIndex = displayProductions.findIndex((item) => item.slug === targetSlug);
+
+      displayProductions.splice(nextTargetIndex + 1, 0, production);
+    }
+  }
+
   swapProductions("gransbevakarna-sverige", "efterlyst");
   swapProductions("havets-hjaltar", "vara-tonaringar");
   swapProductions("bra-surr", "vara-tonaringar");
@@ -31,18 +43,26 @@ if (variant === "mosaic") {
   swapProductions("stockholmspolisen", "vara-tonaringar");
   swapProductions("stockholmspolisen", "kvartsamtalet");
   swapProductions("stockholmspolisen", "vara-tonaringar");
+  moveProductionAfter("gransbevakarna-sverige", "vagens-hjaltar");
 }
 
 const ratioPattern = [0.78, 1.72, 1.34, 1.12, 1.45, 1.68, 0.9, 1.28, 1.52, 1.74, 1.05, 1.4];
 const rowPattern = [16, 8, 10, 11, 9, 8, 14, 10, 9, 8, 12, 10];
+const cardRatioBySlug: Record<string, number> = {
+  "gransbevakarna-sverige": 0.78,
+  "stockholmspolisen": 1.45
+};
 const tileRowsBySlug: Record<string, number> = {
+  "gransbevakarna-sverige": 16,
   "gruvan": 10,
+  "vagens-hjaltar": 11,
   "johanna-moller": 10,
   "mamma-jimmy-guo": 12,
   "ronnasfallet": 13,
-  "det-stora-tartslaget": 16,
+  "det-stora-tartslaget": 18,
+  "fangar-pa-polisens-kamera": 12,
   "norrlandspolisen": 10,
-  "stockholmspolisen": 14,
+  "stockholmspolisen": 24,
   "bra-surr": 11,
   "vara-tonaringar": 9,
   "kvartsamtalet": 11
@@ -59,7 +79,11 @@ const tileRowsBySlug: Record<string, number> = {
       return (
         <ProductionCard
           production={production}
-          cardRatio={variant === "mosaic" ? ratioPattern[index % ratioPattern.length] : undefined}
+          cardRatio={
+            variant === "mosaic"
+              ? cardRatioBySlug[production.slug] ?? ratioPattern[index % ratioPattern.length]
+              : undefined
+          }
           cardRows={
             variant === "mosaic"
               ? tileRowsBySlug[production.slug] ?? rowPattern[index % rowPattern.length]

@@ -21,7 +21,7 @@ type Props = {
 const { production } = Astro.props;
 const meta = [production.category, production.year, production.broadcaster].filter(Boolean).join(" · ");
 const relatedProductions = getRelatedProductions(production, 2);
-const galleryImages = [...new Set([production.image, ...(production.gallery ?? [])])];
+const galleryImages = production.gallery?.length ? production.gallery : [production.image];
 const galleryCaptions = production.galleryCaptions ?? [];
 const galleryCaptionNames = production.galleryCaptionNames ?? [];
 const youtubeEmbedUrl = production.youtubeId
@@ -38,7 +38,7 @@ function cleanCaptionText(caption?: string) {
   description={production.description}
   canonicalPath={productionHref(production)}
 >
-  <article class="production-detail">
+  <article class="production-detail" data-slug={production.slug}>
     <header class="detail-hero">
       <img src={production.image} alt={`${production.title} hero image`} />
       <div class="detail-hero__text">
@@ -57,7 +57,7 @@ function cleanCaptionText(caption?: string) {
               const captionName = galleryCaptionNames[index];
 
               return (
-                <figure class="detail-gallery__slide">
+                <figure class="detail-gallery__slide" data-carousel-index={index}>
                   <img
                     src={image}
                     alt={`${production.title} gallery image ${index + 1}`}
@@ -75,6 +75,23 @@ function cleanCaptionText(caption?: string) {
             })
           }
         </div>
+        {
+          galleryImages.length > 1 && (
+            <div class="detail-gallery__dots" aria-label={`${production.title} gallery navigation`}>
+              {
+                galleryImages.map((_, index) => (
+                  <button
+                    class:list={["detail-gallery__dot js-carousel-dot", { "is-active": index === 0 }]}
+                    type="button"
+                    data-carousel-dot={index}
+                    aria-label={`Show gallery image ${index + 1}`}
+                    aria-current={index === 0 ? "true" : undefined}
+                  />
+                ))
+              }
+            </div>
+          )
+        }
       </section>
     </section>
 

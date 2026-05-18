@@ -52,7 +52,7 @@ export const productions: Production[] = [
     category: "Work place reality",
     broadcaster: "Kanal 5 / Discovery+",
     image: "/productions/gransbevakarna-sverige.jpg",
-    cardImage: "/productions/gransbevakarna-sverige-card.jpg",
+    cardImage: "/productions/gransbevakarna-sverige.jpg",
     description:
       "Gränsbevakarna Sverige is a captivating documentary series that takes viewers behind the scenes at border control stations where customs officers and police work to protect the country's borders. The series shows how these officers deal with everything from smuggling and illegal activities to checking in and out passengers, revealing both the exciting and challenging aspects of their profession. Gränsbevakarna has become a major success and an international hit, airing worldwide to captivated audiences. In 2024, it won the prestigious Kristallen Award for Best Reality Series, Sweden's equivalent of the American Emmy Award.",
     stats: [
@@ -60,13 +60,13 @@ export const productions: Production[] = [
       { label: "Episodes", value: 48 },
       { label: "Award", value: 1 }
     ],
-    gallery: ["/productions/Pressbild_Mimmi.jpg", "/productions/havets-hjaltar.jpg"],
+    gallery: ["/productions/Pressbild_Mimmi.jpg","/productions/GransbevakarnaClaes.jpg", "/productions/Pressbild_Alex2.jpg"],
     galleryCaptions: [
-      "Vi hade inte förväntat oss att bli kändisar i USA!",
-      "Ansökningarna ökade kraftigt efter seriens framgång",
-      "Serien har presterat långt över förväntan"
+      "We never thought the Swedish version of 'Gränsbevakarna Sverige' would find an audience in other countries!",
+      "The show`s popularity triggered a huge wave of people wanting to join the Customs Service.",
+      "Fantastic production, we've felt completely safe from the very start!"
     ],
-    galleryCaptionNames: ["", "Mimmi", ""]
+    galleryCaptionNames: ["Mimmi", "Claes", "Alex"]
   },
   {
     slug: "svenska-truckers",
@@ -75,7 +75,7 @@ export const productions: Production[] = [
     category: "Work place reality",
     broadcaster: "TV3 / Viaplay",
     image: "/productions/svenska-truckers.jpg",
-    cardImage: "/productions/svenska-truckers-card.jpg",
+    cardImage: "/productions/svenska-truckers.jpg",
     description:
       "Svenska Truckers is a realistic series that follows the daily adventures of truck drivers on the road, where they navigate tough routes and manage deliveries under strict deadlines. The program provides a unique insight into the world of truck drivers, from the long, lonely hours on the open road to their skill in handling large vehicles in complex situations. Svenska Truckers has won the prestigious Kristallen Award for Sweden’s Best Reality Series and has received three additional nominations, solidifying its status as a standout in Swedish reality television. Seasons: 11.",
     stats: [
@@ -83,7 +83,13 @@ export const productions: Production[] = [
       { label: "Episodes", value: 130 },
       { label: "Nominations", value: 4 }
     ],
-    gallery: ["/productions/vagens-hjaltar.jpg", "/productions/gruvan.jpg"]
+    gallery: ["/productions/Pressbild_Mimmi.jpg","/productions/GransbevakarnaClaes.jpg", "/productions/Pressbild_Alex2.jpg"],
+    galleryCaptions: [
+      "The series showcases the technology, expertise, and innovation within the industry - and the people who contribute to the benefit of society every single day.",
+      "The show`s popularity triggered a huge wave of people wanting to join the Customs Service.",
+      "Fantastic production, we've felt completely safe from the very start!"
+    ],
+    galleryCaptionNames: ["Mimmi", "Claes", "Alex"]
   },
   {
     slug: "efterlyst",
@@ -91,8 +97,8 @@ export const productions: Production[] = [
     year: "1990",
     category: "True crime",
     broadcaster: "TV3 / Viaplay",
-    image: "/productions/efterlyst.avif",
-    cardImage: "/productions/efterlyst-card.jpg",
+    image: "/productions/Hasse.jpg",
+    cardImage: "/productions/Hasse2.jpg",
     description:
       "Efterlyst takes viewers straight into the heart of Sweden’s most shocking criminal cases, where the police and the public work together to solve cold cases and capture wanted criminals. Airing for over 30 years, Efterlyst is a flagship production and a true prestige project, having earned eight nominations for the Kristallen Award—the Swedish equivalent of an Emmy. Alaska has been specially chosen among production companies in Sweden as the trusted partner to produce this program year after year. The program combines raw facts with authentic reconstructions to portray the ongoing quest for justice. Seasons: 13.",
     stats: [
@@ -109,7 +115,7 @@ export const productions: Production[] = [
     category: "Work place reality",
     broadcaster: "Viaplay",
     image: "/productions/gruvan.jpg",
-    cardImage: "/productions/gruvan-card.jpg",
+    cardImage: "/productions/gruvan.jpg",
     description:
       "Deep beneath the mountains of northern Sweden, a hidden world comes alive. Gruvan is a workplace reality series that takes viewers inside some of the world's most advanced and safest mines. From Kiruna's extensive underground network to Aitik's vast open-pit, we follow the women and men who drive production forward. With cutting-edge technology, modern mining techniques, and machines among the largest on Earth, every operation demands precision. This is world-leading mining—where innovation and safety go hand in hand to power industry and secure a nation's future.",
     stats: [
@@ -117,24 +123,13 @@ export const productions: Production[] = [
       { label: "Views", value: 3840000, suffix: "+" },
       { label: "Episodes", value: 12 }
     ],
-    gallery: ["/productions/norrlandspolisen.jpg", "/productions/sommaren-i-grums.jpg"]
-  },
-  {
-    slug: "fangat-pa-polisens-kamera",
-    title: "Fångat på polisens kamera",
-    year: "2023",
-    category: "Work place reality",
-    broadcaster: "Viaplay",
-    image: "/productions/fangar-pa-polisens-kamera.jpg",
-    cardImage: "/productions/fangar-pa-polisens-kamera-card.jpg",
-    description:
-      "On poliscameras across Sweden, secrets are unvailed and civilians rescued in this gripping series. Fångat på polisens kamera takes viewers into the heart of real police interventions, where surveillance footage captures dramatic and intense situations. From high-speed chases to tense standoffs, the program offers an unfiltered look at the everyday life of the police as they deal with crime, dangerous situations, and unexpected events. With a mix of raw footage and expert commentary, Fångat på polisens kamera provides a powerful insight into the challenges and heroism of law enforcement in Sweden.",
-    stats: [
-      { label: "Seasons", value: 3 },
-      { label: "Views", value: 25900000, suffix: "+" },
-      { label: "Episodes", value: 74 }
+    gallery: ["/productions/MariaSwarling.jpg", "/productions/gruvanStefan.jpg", "/productions/gruvanMia.jpg"],
+    galleryCaptions: [
+      "The series showcases the technology, expertise, and innovation within the industry - and the people who contribute to the benefit of society every single day.",
+      "There were quite a few slips of the tongue, you could say. I was lucky to have an incredibly talented producer with me the whole time, who kept saying: 'We`ll probably have to cut that part out.",
+      "I want more girls to feel that this could be a career for them!"
     ],
-    gallery: ["/productions/norrlandspolisen.jpg", "/productions/sommaren-i-grums.jpg"]
+    galleryCaptionNames: ["Maria Swartling, Operations Manager at Sustainable Steel Region", "Stefan Rautavuoma, LKAB emplyee", "Mia Ståhlnacke, Rock Bolter LKAB"]
   },
   {
     slug: "vagens-hjaltar",
@@ -360,12 +355,12 @@ export const productions: Production[] = [
   },
   {
     slug: "fangar-pa-polisens-kamera",
-    title: "Fångar på polisens kamera",
+    title: "Fångat på polisens kamera",
     year: "2023",
     category: "Factual entertainment",
     broadcaster: "TV4 / TV4 Play",
-    image: "/productions/fangar-pa-polisens-kamera.jpg",
-    cardImage: "/productions/fangar-pa-polisens-kamera-card.jpg",
+    image: "/productions/fangatpolisenskamera.jpg",
+    cardImage: "/productions/fangatpolisenskamera.jpg",
     description:
       "Caught on the Police Camera is a television program that shows dramatic and intense situations from real police interventions, captured on surveillance cameras, body cameras and other recording devices. The program gives an insight into the everyday life of the police and how they deal with crime, dangerous situations and sometimes unexpected events.",
     stats: [
@@ -396,8 +391,8 @@ export const productions: Production[] = [
     title: "Stockholmspolisen",
     year: "2024",
     category: "Factual entertainment",
-    image: "/productions/stockholmspolisen.jpg",
-    cardImage: "/productions/stockholmspolisen-card.jpg",
+    image: "/productions/Stpolisen2.jpeg",
+    cardImage: "/productions/sthlmcanva.png",
     description:
       "Stockholm Police offers an unfiltered look into the daily challenges faced by the police as they tackle gang crime, homelessness, drug issues, and escalating social problems. This gripping series follows Stockholm's officers as they respond to urgent calls—from accidents to assaults and even shootings—capturing the intensity and unpredictability of life on the front lines. Each episode provides a powerful glimpse into the dedication and bravery required to protect the city and its residents. With real-life drama and high-stakes moments, Stockholm Police is a must-watch for those who want to experience the pulse of the city's most pressing challenges.",
     stats: [
@@ -405,7 +400,7 @@ export const productions: Production[] = [
       { label: "Episodes", value: 20 },
       { label: "Seasons", value: 2 }
     ],
-    gallery: ["/productions/norrlandspolisen.jpg", "/productions/fangar-pa-polisens-kamera.jpg"]
+    gallery: ["/productions/sthlmpo1.jpeg", "/productions/fangar-pa-polisens-kamera.jpg"]
   },
   {
     slug: "bra-surr",
