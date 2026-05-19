@@ -55,7 +55,8 @@ export const productions: Production[] = [
     cardImage: "/productions/gransbevakarna-sverige.jpg",
     description:
       "Gränsbevakarna Sverige is a captivating documentary series that takes viewers behind the scenes at border control stations where customs officers and police work to protect the country's borders. The series shows how these officers deal with everything from smuggling and illegal activities to checking in and out passengers, revealing both the exciting and challenging aspects of their profession. Gränsbevakarna has become a major success and an international hit, airing worldwide to captivated audiences. In 2024, it won the prestigious Kristallen Award for Best Reality Series, Sweden's equivalent of the American Emmy Award.",
-    stats: [
+    youtubeId: "NdsFC-tq6Lw",
+      stats: [
       { label: "Seasons", value: 11 },
       { label: "Episodes", value: 48 },
       { label: "Award", value: 1 }
@@ -78,6 +79,7 @@ export const productions: Production[] = [
     cardImage: "/productions/svenska-truckers.jpg",
     description:
       "Svenska Truckers is a realistic series that follows the daily adventures of truck drivers on the road, where they navigate tough routes and manage deliveries under strict deadlines. The program provides a unique insight into the world of truck drivers, from the long, lonely hours on the open road to their skill in handling large vehicles in complex situations. Svenska Truckers has won the prestigious Kristallen Award for Sweden’s Best Reality Series and has received three additional nominations, solidifying its status as a standout in Swedish reality television. Seasons: 11.",
+      youtubeId: "wZHiJrChUT8",
     stats: [
       { label: "Seasons", value: 11 },
       { label: "Episodes", value: 130 },
@@ -101,6 +103,7 @@ export const productions: Production[] = [
     cardImage: "/productions/Hasse2.jpg",
     description:
       "Efterlyst takes viewers straight into the heart of Sweden’s most shocking criminal cases, where the police and the public work together to solve cold cases and capture wanted criminals. Airing for over 30 years, Efterlyst is a flagship production and a true prestige project, having earned eight nominations for the Kristallen Award—the Swedish equivalent of an Emmy. Alaska has been specially chosen among production companies in Sweden as the trusted partner to produce this program year after year. The program combines raw facts with authentic reconstructions to portray the ongoing quest for justice. Seasons: 13.",
+    youtubeId: "YhHDsWGJyvg",
     stats: [
       { label: "Seasons", value: 13 },
       { label: "Views", value: 112000000, suffix: "+" },
@@ -118,7 +121,8 @@ export const productions: Production[] = [
     cardImage: "/productions/gruvan.jpg",
     description:
       "Deep beneath the mountains of northern Sweden, a hidden world comes alive. Gruvan is a workplace reality series that takes viewers inside some of the world's most advanced and safest mines. From Kiruna's extensive underground network to Aitik's vast open-pit, we follow the women and men who drive production forward. With cutting-edge technology, modern mining techniques, and machines among the largest on Earth, every operation demands precision. This is world-leading mining—where innovation and safety go hand in hand to power industry and secure a nation's future.",
-    stats: [
+    youtubeId: "rPRjDJdOo-w",
+      stats: [
       { label: "Seasons", value: 2 },
       { label: "Views", value: 3840000, suffix: "+" },
       { label: "Episodes", value: 12 }
@@ -138,10 +142,10 @@ export const productions: Production[] = [
     category: "Work place reality",
     broadcaster: "Kanal 5 / Discovery+",
     image: "/productions/vagens-hjaltar.jpg",
-    cardImage: "/productions/vagens-hjaltar-card.jpg",
+    cardImage: "/productions/vagens-hjaltar.jpg",
     description:
       "Vägens Hjältar takes viewers into the fast-paced daily lives of tow truck operators as they recover cars and other vehicles that have crashed or veered off the road. This highly successful series has, for many years, captivated audiences of all ages with its compelling stories of rescue and recovery. Each episode showcases the skills, bravery, and quick thinking required to handle high-stakes situations on the road, drawing viewers into the challenges and triumphs of those who keep our roads safe.",
-    youtubeId: "wzTxZ5ZcES0",
+    youtubeId: "re4VHsaQrQ8",
     stats: [
       { label: "Seasons", value: 16, suffix: "+" },
       { label: "Views", value: 61200000, suffix: "+" },
@@ -156,15 +160,16 @@ export const productions: Production[] = [
     category: "Work place reality",
     broadcaster: "Kanal 5 / Discovery+",
     image: "/productions/tunnelbanan.jpg",
-    cardImage: "/productions/tunnelbanan-card.jpg",
+    cardImage: "/productions/tunnelbanan.jpg",
     description:
       "Tunnelbanan gives viewers a rare glimpse into the daily efforts to keep Stockholm's transit system safe. The series follows SL's security team—including guards, volunteers, and subway police—as they monitor stations through surveillance and respond to incidents in real time. With a mix of high-stakes interventions and coordinated responses, Subway captures the intense, behind-the-scenes work needed to maintain order, offering suspenseful insights into the vital operations of Stockholm's public transit.",
-    stats: [
+    youtubeId: "L5MASSh0hNk",
+      stats: [
       { label: "Episodes", value: 40, suffix: "+" },
       { label: "Views", value: 112000000, suffix: "+" },
       { label: "Seasons", value: 5 }
     ],
-    gallery: ["/productions/stockholmspolisen.jpg", "/productions/havets-hjaltar.jpg"]
+    gallery: ["/productions/tunnelbanannettan.jpeg", "/productions/tunnelbananfredrick.jpeg"]
   },
   {
     slug: "havets-hjaltar",
@@ -176,12 +181,13 @@ export const productions: Production[] = [
     cardImage: "/productions/havets-hjaltar-card.jpg",
     description:
       "Havets Hjältar takes viewers on a thrilling journey with 60 marine police officers patrolling the stunning yet unpredictable archipelagos of Stockholm and Gothenburg. The series also follows dedicated volunteers from the Swedish Sea Rescue Society, who are always ready to lend a helping hand when calm waters turn treacherous. Whether responding to emergencies, accidents, or even crime scenes, these brave men and women risk it all to keep Sweden's waters safe. Each episode brings viewers closer to the action, showcasing the courage and resilience required to face the unexpected at sea. Dive into the captivating world of Havets Hjältar and witness true acts of heroism on Sweden's vast waters.",
-    stats: [
+     youtubeId: "QTcWuuNbgw0",
+      stats: [
       { label: "Seasons", value: 3 },
       { label: "Views", value: 3600000, suffix: "+" },
       { label: "Episodes", value: 24 }
     ],
-    gallery: ["/productions/vagens-hjaltar.jpg", "/productions/gransbevakarna-sverige.jpg"]
+    gallery: ["/productions/havetsh.jpg", "/productions/havetshett.jpg", "/productions/havetshtre.jpg", "/productions/havetshfyra.jpg"],
   },
   {
     slug: "sommaren-i-grums",
@@ -193,7 +199,8 @@ export const productions: Production[] = [
     cardImage: "/productions/sommaren-i-grums-card.jpg",
     description:
       "This summer, radio personality Hanna Hellquist brings a fresh twist to TV with her new show Summer in Grums. Teaming up with celebrity guests, Hanna tackles the ultimate challenge: transforming the garden on her family's beloved farm. Join Hanna as she enlists the help of singer Oscar Zia, crime novelist Malin Persson Giolito, her På spåret partner Ina Lundström, along with Jonatan Unge and Little Jinder. With unexpected humor, hard work, and lively company, Summer in Grums promises to be a heartwarming and entertaining adventure in rural Sweden.",
-    stats: [
+    youtubeId: "v4pc91CWmlA",
+      stats: [
       { label: "Episodes", value: 6 },
       { label: "Views", value: 840000, suffix: "+" },
       { label: "Seasons", value: 1 }
@@ -227,7 +234,8 @@ export const productions: Production[] = [
     cardImage: "/productions/johanna-moller-card.jpg",
     description:
       "In 2016, one of Sweden's most high-profile murders took place, the so-called \"Summer cottage murder\". The victim's daughter, Johanna Möller, becomes known as the \"Arboga woman\" and is sentenced to life imprisonment for being the mastermind behind the act that she made her boyfriend carry out. Johanna Möller is convicted without technical evidence and the verdict is based on the testimony of co-suspect Mohammad Rajabi.",
-    stats: [
+    youtubeId: "-_7CJu-zA7U",
+      stats: [
       { label: "Parts", value: 3 },
       { label: "Streams", value: 1350000, suffix: "+" },
       { label: "Year", value: 2022 }
@@ -240,11 +248,12 @@ export const productions: Production[] = [
     year: "2021",
     category: "True crime",
     broadcaster: "SVT / SVT Play",
-    image: "/productions/ronnasfallet.jpg",
-    cardImage: "/productions/ronnasfallet-card.jpg",
+    image: "/productions/nyronnas.jpg",
+    cardImage: "/productions/DNS_Ronnasfallet_1080x1350_master_preview.jpg",
     description:
       "The exclusive Discovery documentary Rönnäsfallet – The Quest for Truth reveals new evidence in the notorious Rönnäs assault case, potentially clearing Lars Appelvik, who many believe was wrongfully convicted. Following attorney Marko Tuhkanen, detective Bo Åström, and professor Minna Gräns, the series exposes critical flaws in the investigation and challenges the foundation of Appelvik's sentence. With crime scene reconstructions and fresh insights, Rönnäsfallet offers a gripping look into the search for justice in one of Sweden's most controversial cases.",
-    stats: [
+    youtubeId: "kYC4UTp5K1k",
+      stats: [
       { label: "Episodes", value: 5 },
       { label: "Views", value: 1100000, suffix: "+" },
       { label: "Year", value: 2021 }
@@ -329,7 +338,8 @@ export const productions: Production[] = [
     cardImage: "/productions/mamma-jimmy-guo-card.jpg",
     description:
       "In Chinese culture, food is much more than sustenance—it's a celebration of joy, culture, and love. In this series, chef Jimmy Guo and his mother invite viewers into their world, sharing the rich traditions and flavors of their culinary heritage.",
-    stats: [
+    youtubeId: "UDltkH-eqUk",
+      stats: [
       { label: "Views", value: 450000, suffix: "+" },
       { label: "Episodes", value: 6 },
       { label: "Season", value: 1 }
@@ -343,10 +353,11 @@ export const productions: Production[] = [
     category: "Reality",
     broadcaster: "Kanal 5 / Discovery+",
     image: "/productions/det-stora-tartslaget.jpg",
-    cardImage: "/productions/det-stora-tartslaget-card.jpg",
+    cardImage: "/productions/tartslagetlogga.jpg",
     description:
       "In Det stora tårtslaget, nine contestants with a shared passion for cake design compete to prove they have what it takes to be the best. Each week, they're challenged to create stunning cakes based on a new theme, all while tackling tricky technical tests in decoration and design. With creativity, skill, and nerves on the line, Det stora tårtslaget is a thrilling journey into the world of cake artistry, where only the most impressive creations will rise to the top!",
-    stats: [
+    youtubeId: "u0Ath-jdJ74",
+      stats: [
       { label: "Views", value: 1440000, suffix: "+" },
       { label: "Episodes", value: 8 },
       { label: "Season", value: 1 }
@@ -363,7 +374,8 @@ export const productions: Production[] = [
     cardImage: "/productions/fangatpolisenskamera.jpg",
     description:
       "Caught on the Police Camera is a television program that shows dramatic and intense situations from real police interventions, captured on surveillance cameras, body cameras and other recording devices. The program gives an insight into the everyday life of the police and how they deal with crime, dangerous situations and sometimes unexpected events.",
-    stats: [
+    youtubeId: "29PWBkrQzak",
+      stats: [
       { label: "Views", value: 25900000, suffix: "+" },
       { label: "Seasons", value: 3 },
       { label: "Episodes", value: 74 }
@@ -400,7 +412,7 @@ export const productions: Production[] = [
       { label: "Episodes", value: 20 },
       { label: "Seasons", value: 2 }
     ],
-    gallery: ["/productions/sthlmpo1.jpeg", "/productions/fangar-pa-polisens-kamera.jpg"]
+    gallery: ["/productions/sthlmponight.jpg", "/productions/sthlmday.jpg", "/productions/sthlmnights.jpg"]
   },
   {
     slug: "bra-surr",
@@ -412,6 +424,8 @@ export const productions: Production[] = [
     cardImage: "/productions/bra-surr-card.jpg",
     description:
       "An unfiltered discussion show where Reine-Alix Ndengeyinka engages with fearless young people, diving into the issues that matter most to today's youth.",
+    
+    youtubeId: "2VbALxYk4Lg",
     stats: [
       { label: "Views", value: 1320000, suffix: "+" },
       { label: "Episodes", value: 12 },
@@ -429,7 +443,8 @@ export const productions: Production[] = [
     cardImage: "/productions/kvartsamtalet-card.jpg",
     description:
       "Kvartsamtalet is a thought-provoking interview series on SVT Play, hosted by Parisa Amiri in its first two seasons and Assia Dahir in the third. In each 15-minute episode, celebrities like Bianca Ingrosso, Carl Bildt, and Niklas Strömstedt share candid insights, discussing everything from personal regrets to career-defining moments.",
-    stats: [
+    youtubeId: "WE1pQASvcSc",
+      stats: [
       { label: "Views", value: 2070000, suffix: "m+" },
       { label: "Seasons", value: 3 },
       { label: "Episodes", value: 24}

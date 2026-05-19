@@ -5,3 +5,8 @@ dist
 .netlify
 .DS_Store
 *.log
+
+public/productions/havetsh.png
+public/productions/havetshett.png
+public/productions/havetshtre.png
+public/productions/havetshfyra.png

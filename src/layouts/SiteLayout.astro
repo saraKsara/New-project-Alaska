@@ -89,6 +89,11 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
           el.textContent = `${formatNumber(value)}${suffix}`;
         }
 
+        function showCounterValue(el, value) {
+          setCounterValue(el, value);
+          el.classList.add("is-countup-visible");
+        }
+
         function reserveCounterSpace(el) {
           const target = Number.parseInt(el.dataset.countupTarget || "0", 10);
           const suffix = el.dataset.countupSuffix || "";
@@ -102,6 +107,7 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
           const startTime = performance.now();
           const runId = `${startTime}-${target}`;
           el.dataset.countupRunId = runId;
+          el.classList.add("is-countup-visible");
 
           function tick(now) {
             if (el.dataset.countupRunId !== runId) return;
@@ -123,6 +129,7 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
 
         function resetCounter(el) {
           delete el.dataset.countupRunId;
+          el.classList.remove("is-countup-visible");
           setCounterValue(el, 0);
         }
 
@@ -213,7 +220,7 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
 
           if (!("IntersectionObserver" in window) || reduceMotion) {
             standaloneCounters.forEach((counter) => {
-              setCounterValue(
+              showCounterValue(
                 counter,
                 Number.parseInt(counter.dataset.countupTarget || "0", 10)
               );
@@ -226,7 +233,10 @@ const canonicalUrl = new URL(canonicalPath, alaskaSite.url).toString();
               entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
 
-                animateCounter(entry.target);
+                showCounterValue(
+                  entry.target,
+                  Number.parseInt(entry.target.dataset.countupTarget || "0", 10)
+                );
                 observer.unobserve(entry.target);
               });
             },
