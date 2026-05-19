@@ -137,7 +137,7 @@ export const productions: Production[] = [
   },
   {
     slug: "vagens-hjaltar",
-    title: "Vägens Hjältar",
+    title: "",
     year: "2015",
     category: "Work place reality",
     broadcaster: "Kanal 5 / Discovery+",
@@ -155,7 +155,7 @@ export const productions: Production[] = [
   },
   {
     slug: "tunnelbanan",
-    title: "Tunnelbanan",
+    title: "",
     year: "2012",
     category: "Work place reality",
     broadcaster: "Kanal 5 / Discovery+",
@@ -196,7 +196,7 @@ export const productions: Production[] = [
     category: "Entertainment",
     broadcaster: "SVT / SVT Play",
     image: "/productions/sommaren-i-grums.jpg",
-    cardImage: "/productions/sommaren-i-grums-card.jpg",
+    cardImage: "/productions/Grums.jpg",
     description:
       "This summer, radio personality Hanna Hellquist brings a fresh twist to TV with her new show Summer in Grums. Teaming up with celebrity guests, Hanna tackles the ultimate challenge: transforming the garden on her family's beloved farm. Join Hanna as she enlists the help of singer Oscar Zia, crime novelist Malin Persson Giolito, her På spåret partner Ina Lundström, along with Jonatan Unge and Little Jinder. With unexpected humor, hard work, and lively company, Summer in Grums promises to be a heartwarming and entertaining adventure in rural Sweden.",
     youtubeId: "v4pc91CWmlA",
@@ -226,12 +226,12 @@ export const productions: Production[] = [
   },
   {
     slug: "johanna-moller",
-    title: "Johanna Möller",
+    title: "",
     year: "2021",
     category: "True crime",
     broadcaster: "TV4 / TV4 Play",
     image: "/productions/johanna-moller.jpg",
-    cardImage: "/productions/johanna-moller-card.jpg",
+    cardImage: "/productions/testa.jpg",
     description:
       "In 2016, one of Sweden's most high-profile murders took place, the so-called \"Summer cottage murder\". The victim's daughter, Johanna Möller, becomes known as the \"Arboga woman\" and is sentenced to life imprisonment for being the mastermind behind the act that she made her boyfriend carry out. Johanna Möller is convicted without technical evidence and the verdict is based on the testimony of co-suspect Mohammad Rajabi.",
     youtubeId: "-_7CJu-zA7U",
@@ -240,7 +240,7 @@ export const productions: Production[] = [
       { label: "Streams", value: 1350000, suffix: "+" },
       { label: "Year", value: 2022 }
     ],
-    gallery: ["/productions/efterlyst.jpg", "/productions/ronnasfallet.jpg"]
+    gallery: ["/productions/mollergranliden.jpg", "/productions/mullercaruselltva.jpg", "/productions/mollercarusell.jpg"]
   },
   {
     slug: "ronnasfallet",
@@ -335,7 +335,7 @@ export const productions: Production[] = [
     category: "Documentary",
     broadcaster: "SVT / SVT Play",
     image: "/productions/mamma-jimmy-guo.jpg",
-    cardImage: "/productions/mamma-jimmy-guo-card.jpg",
+    cardImage: "/productions/mammajimmy.jpg",
     description:
       "In Chinese culture, food is much more than sustenance—it's a celebration of joy, culture, and love. In this series, chef Jimmy Guo and his mother invite viewers into their world, sharing the rich traditions and flavors of their culinary heritage.",
     youtubeId: "UDltkH-eqUk",
@@ -416,12 +416,12 @@ export const productions: Production[] = [
   },
   {
     slug: "bra-surr",
-    title: "Bra surr",
+    title: "",
     year: "2023",
     category: "Social journalism",
     broadcaster: "YouTube / social platforms",
     image: "/productions/bra-surr.jpg",
-    cardImage: "/productions/bra-surr-card.jpg",
+    cardImage: "/productions/bra.jpg",
     description:
       "An unfiltered discussion show where Reine-Alix Ndengeyinka engages with fearless young people, diving into the issues that matter most to today's youth.",
     

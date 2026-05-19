@@ -1110,6 +1110,10 @@ select {
   object-fit: cover;
 }
 
+.production-detail[data-slug="ronnasfallet"] .detail-hero img {
+  object-position: center top;
+}
+
 .detail-hero__text {
   position: relative;
   z-index: 1;
